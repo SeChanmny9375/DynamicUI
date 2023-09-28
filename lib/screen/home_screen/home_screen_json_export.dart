@@ -95,40 +95,184 @@ class _HomeScreenJsonExporterState extends State<HomeScreenJsonExporter> {
             //   ],
             // ),
             //////////
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Container(
-                  color: AppColors.kPrimaryColor,
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 4,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(
-                        Icons.android,
-                        size: 100,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        'Ecoin Soft',
-                        style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
+            // child: Column(
+            //   children: [
+            //     Stack(
+            //       clipBehavior: Clip.none,
+            //       children: [
+            //         Container(
+            //           color: AppColors.kPrimaryColor,
+            //           width: MediaQuery.of(context).size.width,
+            //           height: MediaQuery.of(context).size.height / 4,
+            //           child: Column(
+            //             mainAxisAlignment: MainAxisAlignment.center,
+            //             children: const [
+            //               Icon(
+            //                 Icons.android,
+            //                 size: 100,
+            //                 color: Colors.white,
+            //               ),
+            //               Text(
+            //                 'Ecoin Soft',
+            //                 style: TextStyle(
+            //                   fontSize: 30,
+            //                   color: Colors.white,
+            //                   fontWeight: FontWeight.bold,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //         Positioned(
+            //           width: MediaQuery.of(context).size.width / 1,
+            //           top: MediaQuery.of(context).size.height / 4.5,
+            //           child: const CircleAvatar(
+            //             child: Text('data'),
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //     const SizedBox(
+            //       height: 40,
+            //     ),
+            //     Expanded(
+            //       child: Container(
+            //         width: MediaQuery.of(context).size.width,
+            //         color: Colors.red,
+            //         child: Column(
+            //           crossAxisAlignment: CrossAxisAlignment.start,
+            //           children: const [
+            //             Text('data'),
+            //           ],
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            /////////
+            // child: SizedBox(
+            //   width: MediaQuery.of(context).size.width,
+            //   // color: Colors.red,
+            //   child: Padding(
+            //     padding: const EdgeInsets.only(
+            //       left: 60,
+            //       right: 20,
+            //       top: 40,
+            //       bottom: 40,
+            //     ),
+            //     child: Column(
+            //       crossAxisAlignment: CrossAxisAlignment.start,
+            //       children: [
+            //         const Text('data'),
+            //         Container(
+            //           width: MediaQuery.of(context).size.width,
+            //           height: 80,
+            //           color: Colors.red,
+            //           child: Row(
+            //             children: [
+            //               Expanded(
+            //                 child: Container(
+            //                   width: MediaQuery.of(context).size.width,
+            //                   height: MediaQuery.of(context).size.height,
+            //                   color: Colors.green,
+            //                   child: Container(
+            //                     margin: const EdgeInsets.only(
+            //                       bottom: 30,
+            //                       right: 10,
+            //                     ),
+            //                     height: 50,
+            //                     color: Colors.amber,
+            //                   ),
+            //                 ),
+            //               ),
+            //               Expanded(
+            //                 flex: 4,
+            //                 child: Container(
+            //                   color: Colors.blue,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         )
+            //       ],
+            //     ),
+            //   ),
+            // ),
+
+            // child: Container(
+            //   width: MediaQuery.of(context).size.width,
+            //   height: 100,
+            //   color: Colors.red,
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Container(
+            //         width: 100,
+            //         height: 100,
+            //         color: Colors.blue,
+            //         child: Container(
+            //           margin: const EdgeInsets.only(
+            //             right: 30,
+            //             bottom: 30,
+            //           ),
+            //           width: 20,
+            //           height: 20,
+            //           color: Colors.amber,
+            //         ),
+            //       ),
+            //       Expanded(
+            //         child: Container(
+            //           width: 100,
+            //           height: 100,
+            //           color: Colors.green,
+            //           child: Column(
+            //             crossAxisAlignment: CrossAxisAlignment.start,
+            //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //             children: [
+            //               const Text('data'),
+            //               Container(
+            //                 width: MediaQuery.of(context).size.width,
+            //                 height: 20,
+            //                 color: Colors.red,
+            //                 child: Row(
+            //                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //                   children: const [
+            //                     Text('data'),
+            //                     Icon(Icons.timelapse)
+            //                   ],
+            //                 ),
+            //               ),
+            //               const Text('data'),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
+            child: Container(
+              width: 200,
+              color: Colors.red,
+              height: 100,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text('data'),
+                        Text('data'),
+                        Icon(Icons.document_scanner)
+                      ],
+                    ),
+                    const Text('data')
+                  ],
                 ),
-                Positioned(
-                  width: MediaQuery.of(context).size.width / 1,
-                  top: MediaQuery.of(context).size.height / 4.5,
-                  child: const CircleAvatar(
-                    child: Text('data'),
-                  ),
-                ),
-              ],
+              ),
             ),
           );
         },

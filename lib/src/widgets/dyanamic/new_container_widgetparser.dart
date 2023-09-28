@@ -1,6 +1,6 @@
 import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:dynamic_widget/dynamic_widget/utils.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class BoxDecorationWidgetParser extends WidgetParser {
   @override
@@ -12,7 +12,8 @@ class BoxDecorationWidgetParser extends WidgetParser {
       'decoration': {
         "borderRadius":
             exportBorderRadius(decoration.borderRadius as BorderRadius),
-        "color": decoration.color!.value.toRadixString(16)
+        "color": decoration.color!.value.toRadixString(16),
+        "boxShadow": parseBoxShadow(decoration.boxShadow),
       },
       'child': DynamicWidgetBuilder.export(realWidget.child, buildContext),
     };
@@ -26,6 +27,7 @@ class BoxDecorationWidgetParser extends WidgetParser {
           ? BoxDecoration(
               borderRadius: parseTest(map['decoration']['borderRadius']),
               color: parseHexColor(map['decoration']['color']),
+              boxShadow: parseBoxShadow(map['decoration']['boxShadow']),
             )
           : const BoxDecoration(),
       child: DynamicWidgetBuilder.buildFromMap(
@@ -38,6 +40,32 @@ class BoxDecorationWidgetParser extends WidgetParser {
 
   @override
   Type get widgetType => DecoratedBox;
+}
+
+List<BoxShadow> parseBoxShadow(dynamic shadowData) {
+  if (shadowData == null || shadowData is! List) {
+    return [];
+  }
+
+  List<BoxShadow> shadows = [];
+  for (var shadowItem in shadowData) {
+    if (shadowItem is Map) {
+      final double xOffset = shadowItem['xOffset'] ?? 0.0;
+      final double yOffset = shadowItem['yOffset'] ?? 0.0;
+      final double blurRadius = shadowItem['blurRadius'] ?? 0.0;
+      final double spreadRadius = shadowItem['spreadRadius'] ?? 0.0;
+      final Color color = parseHexColor(shadowItem['color']) ?? Colors.black;
+
+      shadows.add(BoxShadow(
+        offset: Offset(xOffset, yOffset),
+        blurRadius: blurRadius,
+        spreadRadius: spreadRadius,
+        color: color,
+      ));
+    }
+  }
+
+  return shadows;
 }
 
 BorderRadius parseTest(String rt) {
